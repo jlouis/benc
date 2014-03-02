@@ -39,12 +39,12 @@
 %% API
 %%====================================================================
 
-%% @doc Encode a bcode structure to an iolist()
+%% @doc encode/1 Encodes a bcode structure to an iolist()
 %%  two special-cases empty_list and empty_dict designates the difference
 %%  between an empty list and dict for a client for which it matter. We don't
 %%  care and take both to be []
 %% @end
--spec encode(etorrent_types:bcode()) -> iolist().
+-spec encode(bcode()) -> iolist().
 encode(N) when is_integer(N) -> ["i", integer_to_list(N), "e"];
 encode(B) when is_binary(B) -> [integer_to_list(byte_size(B)), ":", B];
 encode({}) -> "de";
