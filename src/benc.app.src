@@ -1,0 +1,11 @@
+{application, benc, [
+	{description, "bencoding as used in BitTorrent"},
+	{vsn, "0.0.1"},
+	{modules, []},
+	{registered, []},
+	{applications, [
+		kernel,
+		stdlib
+	]},
+	{env, []}
+]}.

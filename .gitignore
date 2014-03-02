@@ -1,0 +1,6 @@
+.benc.plt
+deps
+*.beam
+logs
+ebin/*.app
+
