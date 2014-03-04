@@ -1,13 +1,13 @@
 PROJECT = benc
 
 # Options.
-CT_SUITES = eunit
+CT_SUITES = benc
 PLT_APPS = 
 
 # Dependencies.
 
-TEST_DEPS = proper
-dep_proper = https://github.com/manopapad/proper.git
+#TEST_DEPS = eqcmini
+#dep_eqcmini = https://github.com/jlouis/eqcmini.git
 
 # Standard targets.
 

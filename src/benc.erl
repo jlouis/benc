@@ -17,11 +17,6 @@
 -module(benc).
 -author("Jesper Louis Andersen <jesper.louis.andersen@gmail.com>").
 
--ifdef(TEST).
--include_lib("proper/include/proper.hrl").
--include_lib("eunit/include/eunit.hrl").
--endif.
-
 %% API
 % Encoding and parsing
 -export([encode/1, decode/1, parse_file/1]).
@@ -193,20 +188,3 @@ decode_dict_items(String, Accum) ->
         {Key, Rest1} -> {Value, Rest2} = decode_b(Rest1),
                         decode_dict_items(Rest2, [{Key, Value} | Accum])
     end.
-
--ifdef(EUNIT).
--ifdef(PROPER).
-
-prop_inv() ->
-    ?FORALL(BC, bcode(),
-            begin
-                Enc = iolist_to_binary(encode(BC)),
-                {ok, Dec} = decode(Enc),
-                encode(BC) =:= encode(Dec)
-            end).
-
-eqc_test() ->
-    ?assert(proper:quickcheck(prop_inv())).
-
--endif.
--endif.

@@ -4,3 +4,5 @@ deps
 logs
 ebin/*.app
 
+.eqc-info
+current_counterexample.eqc
