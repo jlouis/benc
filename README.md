@@ -32,9 +32,9 @@ Execute:
 	
 To run the tests, you need to pull a couple of test dependencies and then run them:
 
-	make build-tests tests
+	make tests
 	
-The tests use `PropEr` in order to run a property based test of the correct isomorphism between the Erlang representation and the underlying wire format.
+The tests use `Erlang QuickCheck` in order to run a property based test of the correct isomorphism between the Erlang representation and the underlying wire format. The code should be runnable with QuickCheck Mini for this project as it is pretty simple.
 
 ## Use
 
