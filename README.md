@@ -1,5 +1,7 @@
 # Application benc
 
+[![Build Status](https://travis-ci.org/jlouis/benc.png?branch=master)](https://travis-ci.org/jlouis/benc)
+
 ## Handling of bencoded data
 
 This Erlang library (application) contains the code for a bencoder and decoder as used in Etorrent. It is pulled out to its own repository so other projects can refer safely to it without having to pull in the full etorrent source code.
