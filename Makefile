@@ -1,5 +1,7 @@
 PROJECT = benc
 
+.DEFAULT_GOAL := app
+
 # Options.
 CT_SUITES = benc
 PLT_APPS = 
