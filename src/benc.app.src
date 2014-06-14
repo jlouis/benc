@@ -1,6 +1,6 @@
 {application, benc, [
 	{description, "bencoding as used in BitTorrent"},
-	{vsn, "0.0.1"},
+	{vsn, "1.0.0"},
 	{modules, []},
 	{registered, []},
 	{applications, [
