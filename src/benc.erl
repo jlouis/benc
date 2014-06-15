@@ -27,8 +27,8 @@
          get_string_value/2, get_string_value/3]).
 
 %% Decoded.
--type bcode() :: integer() | binary() | [bcode()] | [{binary(), bcode()}] | {}.
--export_type([bcode/0]).
+-type t() :: integer() | binary() | [t()] | [{binary(), t()}] | {}.
+-export_type([t/0]).
 
 %%====================================================================
 %% API
@@ -39,7 +39,7 @@
 %%  between an empty list and dict for a client for which it matter. We don't
 %%  care and take both to be []
 %% @end
--spec encode(bcode()) -> iolist().
+-spec encode(t()) -> iolist().
 encode(N) when is_integer(N) -> ["i", integer_to_list(N), "e"];
 encode(B) when is_binary(B) -> [integer_to_list(byte_size(B)), ":", B];
 encode({}) -> "de";
@@ -49,9 +49,9 @@ encode([{B,_}|_] = D) when is_binary(B) ->
 encode([]) -> "le";
 encode(L) when is_list(L) -> ["l", [encode(I) || I <- L], "e"].
 
-%% @doc Decode a string or binary to a bcode() structure
+%% @doc Decode a string or binary to a t() structure
 %% @end
--spec decode(string() | binary()) -> {ok, bcode()} | {error, _Reason}.
+-spec decode(string() | binary()) -> {ok, t()} | {error, _Reason}.
 decode(Bin) when is_binary(Bin) -> decode(binary_to_list(Bin));
 decode(String) when is_list(String) ->
     try
@@ -126,7 +126,7 @@ get_string_value(Key, PL, Default) ->
 
 %% @doc Parse a file into a Torrent structure.
 %% @end
--spec parse_file(string()) -> {ok, bcode()} | {error, _Reason}.
+-spec parse_file(string()) -> {ok, t()} | {error, _Reason}.
 parse_file(File) ->
     {ok, Bin} = file:read_file(File),
     decode(Bin).
