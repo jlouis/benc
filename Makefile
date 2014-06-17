@@ -13,8 +13,8 @@ PLT_APPS =
 
 # Standard targets.
 
-eqc-ci: app
-	erlc test/*_eqc.erl -o ebin
+eqc-ci: all
+	erlc -o ebin test/*_eqc.erl
 
 include erlang.mk
 
